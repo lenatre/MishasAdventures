@@ -111,3 +111,6 @@
 
 /* Full illustrated celebration replaces the temporary typographic stars. */
 .final-screen:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:url('/assets/victory-celebration-v1.png?v=20260809-1') center/cover no-repeat;opacity:.88;animation:celebrationBreath 4s ease-in-out infinite alternate}.final-screen .confetti{display:none}.final-screen .final:before,.final-screen .final:after{content:none!important}.final-screen .final{z-index:2}.final-screen .final h1{text-shadow:0 4px 0 #082654,0 0 24px #37dce066}@keyframes celebrationBreath{to{filter:brightness(1.12) saturate(1.08)}}
+
+/* Bring back the luminous globe, window and warm study atmosphere behind Misha. */
+.home-screen:before{filter:brightness(1.18) saturate(1.14) contrast(1.02)!important}.home-screen:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 11% 38%,rgba(26,112,181,.19) 0,rgba(11,67,129,.1) 21%,transparent 40%),radial-gradient(circle at 9% 52%,rgba(255,170,61,.12) 0,transparent 17%)}
