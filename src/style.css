@@ -114,3 +114,6 @@
 
 /* Bring back the luminous globe, window and warm study atmosphere behind Misha. */
 .home-screen:before{filter:brightness(1.18) saturate(1.14) contrast(1.02)!important}.home-screen:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 11% 38%,rgba(26,112,181,.19) 0,rgba(11,67,129,.1) 21%,transparent 40%),radial-gradient(circle at 9% 52%,rgba(255,170,61,.12) 0,transparent 17%)}
+
+/* Keep the footer motto as three distinct, readable phrases. */
+.app footer{gap:10px}.app footer span,.app footer b{display:inline-block;white-space:nowrap}@media(max-width:520px){.app footer{gap:5px;font-size:10px!important}}
