@@ -24,7 +24,6 @@ function tone(freq,delay=.0,duration=.16,volume=.035,type='sine'){
   osc.type=type;osc.frequency.setValueAtTime(freq,start);gain.gain.setValueAtTime(.0001,start);gain.gain.exponentialRampToValueAtTime(volume,start+.025);gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
   osc.connect(gain).connect(ctx.destination);osc.start(start);osc.stop(start+duration+.03)
 }
-function noiseBeat(delay=0,volume=.004){const ctx=ensureAudio();if(!ctx)return;const length=Math.floor(ctx.sampleRate*.045),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*(1-i/length);const source=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain(),start=ctx.currentTime+delay;filter.type='highpass';filter.frequency.value=2600;gain.gain.setValueAtTime(volume,start);gain.gain.exponentialRampToValueAtTime(.0001,start+.05);source.buffer=buffer;source.connect(filter).connect(gain).connect(ctx.destination);source.start(start)}
 function playSound(name){if(!soundOn)return;const sounds={
   click:()=>tone(420,0,.08,.018,'triangle'),
   correct:()=>{tone(523,0,.15,.04,'triangle');tone(659,.1,.18,.04,'triangle');tone(784,.2,.24,.035,'triangle')},
@@ -36,8 +35,7 @@ function playSound(name){if(!soundOn)return;const sounds={
   win:()=>[392,523,659,784,1047].forEach((n,i)=>tone(n,i*.13,.42,.035,'triangle'))
   };(sounds[name]||sounds.click)()
 }
-function musicPulse(){if(!soundOn||!audioStarted)return;const melody=[392,523.25,659.25,783.99,659.25,523.25,440,587.33,698.46,880,698.46,587.33,523.25,659.25,783.99,1046.5];melody.forEach((n,i)=>{tone(n,i*.28,.24,.016,'triangle');noiseBeat(i*.28,.0035)});[130.81,196,174.61,220,146.83,220,196,261.63].forEach((n,i)=>{tone(n,i*.56,.4,.013,'sine');tone(82.41,i*.56,.1,.016,'sine')})}
-function startMusic(){if(!soundOn||musicTimer)return;audioStarted=true;ensureAudio();musicPulse();musicTimer=setInterval(musicPulse,4700)}
+function startMusic(){if(!soundOn)return;audioStarted=true;ensureAudio()}
 function stopMusic(){clearInterval(musicTimer);musicTimer=null}
 function toggleSound(){soundOn=!soundOn;localStorage.setItem(SOUND_KEY,soundOn?'on':'off');if(soundOn){startMusic();playSound('correct')}else stopMusic();document.querySelectorAll('[data-sound]').forEach(b=>{b.textContent=soundOn?'🔊':'🔇';b.setAttribute('aria-label',soundOn?'Mute sounds':'Turn sounds on')})}
 document.addEventListener('pointerdown',()=>startMusic(),{once:true});
