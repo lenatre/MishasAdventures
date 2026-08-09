@@ -90,3 +90,7 @@
 /* Larger mission artwork and a brighter, richer night room. */
 .home-screen:before{filter:brightness(1.23) saturate(1.12)}.home-screen .mission .card-art img{width:84%;height:84%}
 @media(max-height:760px) and (min-width:901px){.home-screen .mission .card-art img{width:80%;height:80%}}
+
+/* Redrawn luminous room and balanced mission-art scale. */
+.home-screen:before{filter:none!important;background-image:linear-gradient(90deg,rgba(2,9,27,0) 0%,rgba(2,9,27,.02) 24%,rgba(2,10,31,.42) 38%,rgba(2,10,31,.68) 100%),url('/assets/misha-room-v7.png?v=20260809-1')!important}.home-screen .mission .card-art img{width:79%;height:79%}
+@media(max-height:760px) and (min-width:901px){.home-screen .mission .card-art img{width:75%;height:75%}}
