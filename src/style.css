@@ -102,3 +102,6 @@
 /* Rebalance the award screen and keep preview copy clear of Misha. */
 .final-screen .final{transform:none!important;height:calc(100vh - 50px);justify-content:center;padding:12px 22px 54px}.final-screen .certificate-copy{left:10%;top:10%;width:52%;height:67%}.final-screen .certificate-copy h2{font-size:clamp(17px,2vw,24px);white-space:nowrap;margin:4px 0 6px}.final-screen .certificate-copy p{font-size:clamp(8px,1.05vw,12px);line-height:1.3;margin:3px 0}.final-screen .certificate-copy strong{font-size:clamp(23px,3vw,36px)}.final-screen .certificate-copy>b{font-size:clamp(12px,1.45vw,17px);margin-top:4px}.final-screen .certificate-copy i{width:68%;margin:3px auto 5px}.final-screen .final-actions{margin-bottom:0}
 @media(max-height:760px) and (min-width:901px){.final-screen .final{padding-top:8px;padding-bottom:46px}.final-screen .certificate-copy h2{font-size:20px}.final-screen .certificate-copy p{font-size:9px}}
+
+/* Centre the award content in the usable area to the right of the large Misha. */
+@media(min-width:901px){.final-screen .final{transform:translateX(clamp(70px,8vw,150px))!important}}
