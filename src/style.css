@@ -86,3 +86,7 @@
 /* Keep the sound control out of layout and give artwork a clean text-free zone. */
 .home-screen .sound{position:absolute!important;z-index:60!important;pointer-events:auto!important}.home-screen .mission .card-art{top:5px;bottom:195px;padding-top:8px}.home-screen .mission .card-art img{width:70%;height:70%;margin:0 auto;object-position:center top}.home-screen .mission h2{z-index:7}.home-screen .mission p{z-index:7}
 @media(max-height:760px) and (min-width:901px){.home-screen .mission .card-art{top:3px;bottom:184px;padding-top:5px}.home-screen .mission .card-art img{width:66%;height:66%}}
+
+/* Larger mission artwork and a brighter, richer night room. */
+.home-screen:before{filter:brightness(1.23) saturate(1.12)}.home-screen .mission .card-art img{width:84%;height:84%}
+@media(max-height:760px) and (min-width:901px){.home-screen .mission .card-art img{width:80%;height:80%}}
