@@ -55,6 +55,7 @@ function shell(content,cls=''){
   const gameHelp=['bag','space','agent'].includes(screen)?'<button class="how-to-game" data-how-to>❔ How to play</button>':'';
   app.innerHTML=`<main class="app ${cls}"><div class="stars"></div><button class="sound" data-sound aria-label="${soundOn?'Mute sounds':'Turn sounds on'}">${soundOn?'🔊':'🔇'}</button>${gameHelp}${content}<footer>✦ &nbsp; Learn English. <b>Have fun.</b> Go on adventures! &nbsp; ★</footer></main>`;
   document.querySelector('[data-sound]').onclick=toggleSound;
+  const howButton=document.querySelector('[data-how-to]');if(howButton)howButton.onclick=e=>{e.stopPropagation();openHowTo(['bag','space','agent'].indexOf(screen))};
 }
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function logo(){return `<div class="logo"><strong>Misha’s Adventures</strong></div>`}
