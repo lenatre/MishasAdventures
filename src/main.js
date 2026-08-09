@@ -35,7 +35,7 @@ function playSound(name){if(!soundOn)return;const sounds={
   win:()=>[392,523,659,784,1047].forEach((n,i)=>tone(n,i*.13,.42,.035,'triangle'))
   };(sounds[name]||sounds.click)()
 }
-function musicPulse(){if(!soundOn||!audioStarted)return;[220,277.18,329.63,440].forEach((n,i)=>tone(n,i*.72,1.35,.008,'sine'))}
+function musicPulse(){if(!soundOn||!audioStarted)return;const melody=[329.63,392,440,392,523.25,440,392,329.63];melody.forEach((n,i)=>tone(n,i*.58,.95,.017,'triangle'));[164.81,220,196,146.83].forEach((n,i)=>tone(n,i*1.16,1.5,.012,'sine'))}
 function startMusic(){if(!soundOn||musicTimer)return;audioStarted=true;ensureAudio();musicPulse();musicTimer=setInterval(musicPulse,5200)}
 function stopMusic(){clearInterval(musicTimer);musicTimer=null}
 function toggleSound(){soundOn=!soundOn;localStorage.setItem(SOUND_KEY,soundOn?'on':'off');if(soundOn){startMusic();playSound('correct')}else stopMusic();document.querySelectorAll('[data-sound]').forEach(b=>{b.textContent=soundOn?'🔊':'🔇';b.setAttribute('aria-label',soundOn?'Mute sounds':'Turn sounds on')})}
